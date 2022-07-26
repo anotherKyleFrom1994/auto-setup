@@ -1,0 +1,12 @@
+FROM auto-setup-build
+
+RUN curl https://pyenv.run | bash
+
+RUN echo 'export PATH="'${HOME}'/.pyenv/bin:'${PATH}'"' >>~/.zshrc
+RUN echo 'eval "$(pyenv virtualenv-init -)"' >>~/.zshrc
+RUN echo 'eval "$(pyenv init -)"' >>~/.zshrc
+
+RUN ${HOME}/.pyenv/bin/pyenv install 3.7.9
+RUN ${HOME}/.pyenv/bin/pyenv virtualenv 3.7.9 py37
+
+CMD [ "/bin/zsh" ]

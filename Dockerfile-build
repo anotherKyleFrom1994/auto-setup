@@ -1,0 +1,16 @@
+FROM ubuntu:20.04
+
+ADD . ./scripts
+RUN chmod +x ./scripts/entry.sh
+# RUN ./scripts/entry.sh
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && \
+    apt-get install curl git zsh -y
+
+RUN yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN chsh -s $(which zsh)
+
+RUN apt-get install -y make build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
