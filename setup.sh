@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker build --pull -t auto-setup-build .
-docker build --pull -t auto-setup-pyenv .
+docker build -f Dockerfile-build -t auto-setup-build .
+docker build -f Dockerfile-pyenv -t auto-setup-pyenv .
