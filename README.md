@@ -19,5 +19,5 @@ chmod +x setup.sh
 Then you can use the container by running the following command:
 
 ```bash
-docker run -v /var/run/docker.sock:/var/run/docker.sock -it --rm auto-setup-pyenv
+docker run -p 8888:8888 -v ${PWD}:/home/root/app --rm auto-setup-pyenv jupyter notebook --allow-root --ip=0.0.0.0 app
 ```
