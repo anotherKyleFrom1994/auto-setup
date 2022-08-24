@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 ADD . ./scripts
-RUN chmod +x ./scripts/entry.sh
+# RUN chmod +x ./scripts/entry.sh
 # RUN ./scripts/entry.sh
 ENV DEBIAN_FRONTEND noninteractive
 
